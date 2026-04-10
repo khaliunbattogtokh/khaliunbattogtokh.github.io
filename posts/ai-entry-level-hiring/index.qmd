@@ -1,0 +1,38 @@
+---
+title: "Did ChatGPT Close the Door on Entry-Level Hiring?"
+description: "Examining whether the launch of generative AI reduced entry-level job postings in AI-exposed occupations — and what that means for workers without degrees."
+author: "Khaliun Battogtokh"
+date: "2026-04-10"
+categories: [research, AI, labor markets, STARs]
+draft: true
+---
+
+## The Question
+
+In November 2022, OpenAI launched ChatGPT — and within weeks, it became the fastest-growing consumer application in history. Employers, consultants, and journalists quickly began speculating about which jobs would be automated away. But most of that conversation focused on the long run: which *occupations* would eventually disappear?
+
+This project asks a narrower, more immediate question: **Did the public release of ChatGPT reduce the share of entry-level job postings in occupations highly exposed to AI — and did it do so right away?**
+
+Using monthly job postings data from Lightcast (2020–2024) across hundreds of occupations, I compare how entry-level hiring evolved after October 2022 in occupations with high vs. low AI exposure, as measured by GPT-4's ability to perform the tasks that define each occupation (Brynjolfsson et al., 2025).
+
+---
+
+## Why It Matters
+
+Entry-level jobs are not just starting points — for many workers, they are the *only* point of entry into a career. Workers without a four-year degree, often called STARs (Skilled Through Alternative Routes), disproportionately rely on entry-level roles to break into occupations where they can build skills and advance over time.
+
+If generative AI is compressing the entry-level tier of the hiring funnel — not by eliminating occupations outright, but by shifting firms toward hiring more experienced workers who can supervise or prompt AI tools — then the workers most likely to be left out are not the ones with the most to fear from automation in the abstract. They are the ones who never got the chance to get in the door.
+
+This distinction matters for policy. A world where AI *replaces* experienced workers looks very different from a world where AI raises the floor on *who gets hired at all*. The first story is about displacement. The second is about access — and it falls hardest on workers who were already facing the steepest climb.
+
+---
+
+## The Setting
+
+The analysis focuses on the period from January 2020 through December 2024, centered on October 2022 as the event date. I measure the entry-level share of job postings for each occupation in each month — defined as postings requiring one year of experience or less and no more than a bachelor's degree — and track how that share changed across occupations with different levels of AI exposure after ChatGPT's launch.
+
+The core empirical challenge is separating any AI effect from the technology sector downturn that happened to coincide with ChatGPT's release in late 2022. My identification strategy uses a difference-in-differences design with occupation and month fixed effects to absorb both time-invariant occupation characteristics and aggregate economic shocks — isolating the differential change in entry-level hiring for more vs. less AI-exposed occupations around the event date.
+
+---
+
+*This research is ongoing. Results and robustness checks will be added in future posts.*

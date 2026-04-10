@@ -1,0 +1,23 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  description: "Research on AI, labor markets, and economic opportunity"
+  site-url: https://khaliunbattogtokh.github.io
+  title: "Khaliun Battogtokh"
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/khaliunbattogtokh
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+
+
+

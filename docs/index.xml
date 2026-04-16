@@ -34,6 +34,137 @@
   <media:content url="https://khaliunbattogtokh.github.io/posts/post-with-code/image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
+  <title>Did ChatGPT Close the Door on Entry-Level Hiring?</title>
+  <dc:creator>Khaliun Battogtokh</dc:creator>
+  <link>https://khaliunbattogtokh.github.io/posts/ai-entry-level-hiring/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="the-question" class="level2">
+<h2 class="anchored" data-anchor-id="the-question">The Question</h2>
+<p>In November 2022, OpenAI launched ChatGPT — and within weeks, it became the fastest-growing consumer application in history. Employers, consultants, and journalists quickly began speculating about which jobs would be automated away. But most of that conversation focused on the long run: which <em>occupations</em> would eventually disappear?</p>
+<p>This project asks a narrower, more immediate question: <strong>Did the public release of ChatGPT reduce the share of entry-level job postings in occupations highly exposed to AI — and did it do so right away?</strong></p>
+<p>Using monthly job postings data from Lightcast (2020–2024) across hundreds of occupations, I compare how entry-level hiring evolved after October 2022 in occupations with high vs.&nbsp;low AI exposure, as measured by GPT-4’s ability to perform the tasks that define each occupation (Brynjolfsson et al., 2025).</p>
+<hr>
+</section>
+<section id="why-it-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-it-matters">Why It Matters</h2>
+<p>Entry-level jobs are not just starting points — for many workers, they are the <em>only</em> point of entry into a career. Workers without a four-year degree, often called STARs (Skilled Through Alternative Routes), disproportionately rely on entry-level roles to break into occupations where they can build skills and advance over time.</p>
+<p>If generative AI is compressing the entry-level tier of the hiring funnel — not by eliminating occupations outright, but by shifting firms toward hiring more experienced workers who can supervise or prompt AI tools — then the workers most likely to be left out are not the ones with the most to fear from automation in the abstract. They are the ones who never got the chance to get in the door.</p>
+<p>This distinction matters for policy. A world where AI <em>replaces</em> experienced workers looks very different from a world where AI raises the floor on <em>who gets hired at all</em>. The first story is about displacement. The second is about access — and it falls hardest on workers who were already facing the steepest climb.</p>
+<hr>
+</section>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>The analysis uses Lightcast job postings data from 2014 to 2024, covering approximately 92% of all US job postings. Each posting includes the occupation code, posting date, minimum required education and experience, and skills listed in the job description. To ensure consistency, only occupations with postings in every year from 2014 to 2024 and a sufficient volume of postings were included.</p>
+<p>A posting is classified as <strong>entry-level</strong> if it meets two criteria:</p>
+<ul>
+<li>Requires <strong>1 year or less of experience</strong> (or has a junior seniority level with no experience listed)</li>
+<li>Does <strong>not</strong> require graduate education — at most a bachelor’s degree, associate degree, high school diploma, or no education listed</li>
+</ul>
+<p>For each occupation and year, I compute the entry-level share as the fraction of postings that meet these criteria.</p>
+<hr>
+</section>
+<section id="measuring-ai-exposure" class="level2">
+<h2 class="anchored" data-anchor-id="measuring-ai-exposure">Measuring AI Exposure</h2>
+<p>I measure occupation-level exposure to generative AI using the <strong>GPT-4 exposure score</strong> (<code>gpt4_beta</code>) from Brynjolfsson et al.&nbsp;(2025), <em>Canaries in the Coal Mine</em>. This score aggregates predicted GPT-4 applicability across all tasks within an occupation, drawing on task-level mappings from Eloundou et al.&nbsp;(2023) and Handa et al.&nbsp;(2023). Higher values indicate greater potential for GPT-4–class models to perform the tasks that define the occupation.</p>
+<p>The distribution of exposure scores across occupations is right-skewed: most occupations have low to moderate exposure, while a smaller set has very high exposure. This motivates grouping occupations into <strong>low, medium, and high AI exposure terciles</strong> rather than relying on a single continuous measure.</p>
+<p>The top 20 most exposed occupations include a striking mix of technical and non-technical roles:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Occupation</th>
+<th>GPT-4 Exposure</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mathematicians</td>
+<td>1.000</td>
+</tr>
+<tr class="even">
+<td>Blockchain Engineers</td>
+<td>0.971</td>
+</tr>
+<tr class="odd">
+<td>Court Reporters and Simultaneous Captioners</td>
+<td>0.964</td>
+</tr>
+<tr class="even">
+<td>Proofreaders and Copy Markers</td>
+<td>0.955</td>
+</tr>
+<tr class="odd">
+<td>Correspondence Clerks</td>
+<td>0.952</td>
+</tr>
+<tr class="even">
+<td>Database Administrators</td>
+<td>0.944</td>
+</tr>
+<tr class="odd">
+<td>Computer Programmers</td>
+<td>0.941</td>
+</tr>
+<tr class="even">
+<td>Web Developers</td>
+<td>0.931</td>
+</tr>
+<tr class="odd">
+<td>Telephone Operators</td>
+<td>0.906</td>
+</tr>
+<tr class="even">
+<td>Interpreters and Translators</td>
+<td>0.882</td>
+</tr>
+</tbody>
+</table>
+<p>High exposure is not limited to software engineering — it extends to clerical and communication-intensive roles like Correspondence Clerks and Telephone Operators, highlighting how broadly generative AI could reach across both technical and non-technical work.</p>
+<hr>
+</section>
+<section id="what-the-data-show" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-data-show">What the Data Show</h2>
+<p>To compare trends across exposure groups, I seasonally adjust the entry-level share by removing month-of-year effects, weight occupations by their 2021 posting volume (to hold the mix of occupations constant), and <strong>index each group’s series to October 2022 = 100</strong> — the month ChatGPT launched.</p>
+<p>The results are striking.</p>
+<p><strong>Before October 2022</strong>, the three exposure groups were converging: low-exposure occupations had been rising steadily, while medium- and high-exposure occupations drifted downward toward a common baseline.</p>
+<p><strong>After October 2022</strong>, the groups diverge. Low-exposure occupations see a <strong>sustained increase</strong> in entry-level hiring, rising roughly 10–15 percentage points above the baseline by 2024. Medium- and high-exposure occupations, by contrast, show <strong>more muted growth and greater volatility</strong> — recovering somewhat but never catching up to low-exposure occupations.</p>
+<p>Entry-level opportunities in AI-exposed occupations do not collapse after ChatGPT’s launch. But their growth is meaningfully slower. This pattern is consistent with two possible mechanisms:</p>
+<ol type="1">
+<li><strong>Substitution</strong>: generative AI is automating junior-level tasks in highly exposed occupations, reducing the need to hire entry-level workers to perform them</li>
+<li><strong>Upskilling</strong>: employers in AI-exposed occupations are raising the bar at entry — requiring workers who can work <em>alongside</em> AI tools, rather than workers who perform the tasks AI now handles</li>
+</ol>
+<p>Both mechanisms would produce the same observable pattern: slower growth in entry-level postings in high-exposure occupations relative to low-exposure ones.</p>
+<hr>
+</section>
+<section id="whats-next" class="level2">
+<h2 class="anchored" data-anchor-id="whats-next">What’s Next</h2>
+<p>The next stage of this project examines the <strong>upskilling mechanism</strong> directly. If AI is raising skill requirements at the entry level in exposed occupations, we should see it in the job postings themselves — through changes in skill counts, skill types, or credential requirements.</p>
+<p>Specifically, I will look at three dimensions of skill demand in Lightcast data:</p>
+<ul>
+<li><strong>Skill intensity</strong>: Are entry-level postings in high-exposure occupations listing more distinct skills over time?</li>
+<li><strong>Skill composition</strong>: Are AI-exposed occupations disproportionately demanding technical, analytical, or AI-related skills — or “human” skills like communication and judgment?</li>
+<li><strong>Credential proxies</strong>: Are postings increasingly requiring higher education, specific certifications, or named technologies?</li>
+</ul>
+<p>If AI exposure is associated with rising skill demands at the entry level, that would strengthen the case that generative AI is not just changing <em>what</em> workers do — it is changing <em>who gets hired at all</em>.</p>
+<hr>
+<p><em>This research is ongoing and uses Lightcast job postings data, licensed to Opportunity@Work. Results and robustness checks will be added as the project develops.</em></p>
+
+
+</section>
+
+ ]]></description>
+  <category>research</category>
+  <category>AI</category>
+  <category>labor markets</category>
+  <category>STARs</category>
+  <guid>https://khaliunbattogtokh.github.io/posts/ai-entry-level-hiring/</guid>
+  <pubDate>Fri, 10 Apr 2026 07:00:00 GMT</pubDate>
+</item>
+<item>
   <title>Welcome To My Blog</title>
   <dc:creator>Tristan O&#39;Malley</dc:creator>
   <link>https://khaliunbattogtokh.github.io/posts/welcome/</link>

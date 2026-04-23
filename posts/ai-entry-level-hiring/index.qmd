@@ -2,7 +2,7 @@
 title: "Did ChatGPT Close the Door on Entry-Level Hiring?"
 description: "Examining whether the launch of generative AI reduced entry-level job postings in AI-exposed occupations — and what that means for workers without degrees."
 author: "Khaliun Battogtokh"
-date: "2026-04-10"
+date: "2026-04-23"
 categories: [research, AI, labor markets, STARs]
 draft: false
 ---
@@ -13,7 +13,7 @@ In November 2022, OpenAI launched ChatGPT — and within weeks, it became the fa
 
 This project asks a narrower, more immediate question: **Did the public release of ChatGPT reduce the share of entry-level job postings in occupations highly exposed to AI — and did it do so right away?**
 
-Using monthly job postings data from Lightcast (2020–2024) across hundreds of occupations, I compare how entry-level hiring evolved after October 2022 in occupations with high vs. low AI exposure, as measured by GPT-4's ability to perform the tasks that define each occupation (Brynjolfsson et al., 2025).
+Using monthly job postings data from Lightcast (2020–2024) across hundreds of occupations, I compare how entry-level hiring evolved after October 2022 in occupations with high vs. low AI exposure, as measured by GPT-4's ability to perform the tasks that define each occupation (Eloundou et al., 2023).
 
 ---
 
@@ -29,24 +29,26 @@ This distinction matters for policy. A world where AI *replaces* experienced wor
 
 ## Data
 
-The analysis uses Lightcast job postings data from 2014 to 2024, covering approximately 92% of all US job postings. Each posting includes the occupation code, posting date, minimum required education and experience, and skills listed in the job description. To ensure consistency, only occupations with postings in every year from 2014 to 2024 and a sufficient volume of postings were included.
+The analysis uses Lightcast job postings data from 2020 to 2024, covering approximately 92% of all US job postings. Each posting includes the occupation code, posting date, minimum required education and experience, and the seniority level assigned by Lightcast. The sample covers 638 five-digit SOC occupations after filtering to cells with sufficient posting volume.
 
 A posting is classified as **entry-level** if it meets two criteria:
 
-- Requires **1 year or less of experience** (or has a junior seniority level with no experience listed)
+- Requires **2 years or less of experience** — or has a Junior seniority label with no experience listed (validated: Lightcast has no NULL seniority values; 83.6% of postings are Intermediate, 9.2% Junior, 7.2% Senior)
 - Does **not** require graduate education — at most a bachelor's degree, associate degree, high school diploma, or no education listed
 
-For each occupation and year, I compute the entry-level share as the fraction of postings that meet these criteria.
+This definition follows the Burning Glass (2021) standard for entry-level work. A robustness check using the strictest possible definition — explicit `min_years_experience < 2` only, no seniority inference — is reported below.
 
 ---
 
 ## Measuring AI Exposure
 
-I measure occupation-level exposure to generative AI using the **GPT-4 exposure score** (`gpt4_beta`) from Brynjolfsson et al. (2025), *Canaries in the Coal Mine*. This score aggregates predicted GPT-4 applicability across all tasks within an occupation, drawing on task-level mappings from Eloundou et al. (2023) and Handa et al. (2023). Higher values indicate greater potential for GPT-4–class models to perform the tasks that define the occupation.
+I measure occupation-level exposure to generative AI using the **GPT-4 exposure score** (`gpt4_beta`) from Eloundou et al. (2023), *GPTs are GPTs: An Early Look at the Labor Market Impact Potential of Large Language Models*. This score reflects the share of an occupation's tasks for which GPT-4 can provide meaningful assistance, aggregated across O\*NET task descriptions. Higher values indicate greater potential for GPT-4–class models to perform the core tasks of the occupation.
 
-The distribution of exposure scores across occupations is right-skewed: most occupations have low to moderate exposure, while a smaller set has very high exposure. This motivates grouping occupations into **low, medium, and high AI exposure terciles** rather than relying on a single continuous measure.
+As a robustness check, I also use the **observed exposure** measure from the Anthropic Economic Index, which is based on actual Claude usage patterns by occupation rather than predicted task applicability. The two measures are moderately correlated (r = 0.555), capturing somewhat different dimensions of AI exposure.
 
-The top 20 most exposed occupations include a striking mix of technical and non-technical roles:
+The distribution of `gpt4_beta` is right-skewed: most occupations have low to moderate exposure, while a smaller set has very high exposure. This motivates grouping occupations into **low, medium, and high AI exposure terciles** for visualization, while using the continuous score in the regression.
+
+The most-exposed occupations include a striking mix of technical and non-technical roles:
 
 | Occupation | GPT-4 Exposure |
 |---|---|
@@ -67,35 +69,52 @@ High exposure is not limited to software engineering — it extends to clerical 
 
 ## What the Data Show
 
-To compare trends across exposure groups, I seasonally adjust the entry-level share by removing month-of-year effects, weight occupations by their 2021 posting volume (to hold the mix of occupations constant), and **index each group's series to October 2022 = 100** — the month ChatGPT launched.
-
-The results are striking.
+To compare trends across exposure groups, I seasonally adjust the entry-level share by removing month-of-year effects, weight occupations by their 2021 posting volume (to hold the occupation mix constant), and **index each group's series to October 2022 = 100** — the month ChatGPT launched.
 
 **Before October 2022**, the three exposure groups were converging: low-exposure occupations had been rising steadily, while medium- and high-exposure occupations drifted downward toward a common baseline.
 
-**After October 2022**, the groups diverge. Low-exposure occupations see a **sustained increase** in entry-level hiring, rising roughly 10–15 percentage points above the baseline by 2024. Medium- and high-exposure occupations, by contrast, show **more muted growth and greater volatility** — recovering somewhat but never catching up to low-exposure occupations.
+**After October 2022**, the groups diverge. Low-exposure occupations see a **sustained increase** in entry-level hiring, rising roughly 10–15 percentage points above baseline by 2024. Medium- and high-exposure occupations show **more muted growth** — recovering somewhat but never catching up to low-exposure occupations.
 
 Entry-level opportunities in AI-exposed occupations do not collapse after ChatGPT's launch. But their growth is meaningfully slower. This pattern is consistent with two possible mechanisms:
 
 1. **Substitution**: generative AI is automating junior-level tasks in highly exposed occupations, reducing the need to hire entry-level workers to perform them
-2. **Upskilling**: employers in AI-exposed occupations are raising the bar at entry — requiring workers who can work *alongside* AI tools, rather than workers who perform the tasks AI now handles
+2. **Upskilling**: employers in AI-exposed occupations are raising the experience bar at entry — preferring workers who can work *alongside* AI tools over workers who perform the tasks AI now handles
 
-Both mechanisms would produce the same observable pattern: slower growth in entry-level postings in high-exposure occupations relative to low-exposure ones.
+Both mechanisms produce the same observable pattern: slower growth in entry-level postings in high-exposure occupations relative to low-exposure ones.
+
+---
+
+## Regression Results
+
+To move beyond descriptive comparisons, I estimate a **difference-in-differences (DiD)** model with two-way fixed effects:
+
+$$\text{entry\_sa}_{it} = \beta \cdot \text{post}_t \times \text{gpt4\_beta}_i + \alpha_i + \gamma_t + \varepsilon_{it}$$
+
+where $\alpha_i$ are occupation fixed effects (absorbing time-invariant level differences between occupations), $\gamma_t$ are time fixed effects (absorbing aggregate macro shocks common to all occupations), and $\beta$ is the DiD coefficient of interest. The model is estimated by WLS weighted by each occupation's 2021 posting share, with standard errors clustered by occupation.
+
+The coefficient $\beta$ answers: *conditional on occupation and time effects, did entry-level share fall more post-ChatGPT in occupations with higher AI exposure?*
+
+| Specification | Treatment | Coef | SE | p-value | 95% CI |
+|---|---|---|---|---|---|
+| **Main** (YOE ≤ 2 + Junior) | `gpt4_beta` | −1.00 | 0.69 | 0.149 | [−2.36, 0.36] |
+| Robustness 1 | `observed_exposure` | −0.50 | 0.97 | 0.603 | [−2.40, 1.40] |
+| **Robustness 2** (YOE < 2 strict) | `gpt4_beta` | **−2.70** | **1.68** | **0.107** | [−5.99, 0.58] |
+
+All specifications show negative coefficients — consistent with the hypothesis that AI exposure suppressed entry-level hiring post-ChatGPT. Under the strictest entry-level definition (explicit experience < 2 years, no seniority inference), the estimated effect is larger at **−2.7 percentage points** and borderline significant at the 10% level.
+
+The `observed_exposure` robustness check gives a noisier estimate, likely because actual AI adoption patterns (measured post-ChatGPT) are a less clean proxy for pre-existing exposure potential than the task-based `gpt4_beta` score.
 
 ---
 
 ## What's Next
 
-The next stage of this project examines the **upskilling mechanism** directly. If AI is raising skill requirements at the entry level in exposed occupations, we should see it in the job postings themselves — through changes in skill counts, skill types, or credential requirements.
+The regression results are directionally consistent but not yet statistically significant at conventional levels. Before drawing strong conclusions, I need to rule out two key confounders:
 
-Specifically, I will look at three dimensions of skill demand in Lightcast data:
+- **Interest rate cycle**: The Federal Reserve raised rates sharply in 2022–2023, which could have independently reduced hiring — particularly in sectors like tech that are sensitive to borrowing costs. I plan to construct an occupation-level interest rate sensitivity measure from pre-period data and add `post × rate_sensitivity` as a control.
+- **Demand shocks**: Some occupations saw large declines in overall posting volume post-2022 that are unrelated to AI. I will add `post × avg_demand_change` to the DiD to absorb occupation-specific demand trends.
 
-- **Skill intensity**: Are entry-level postings in high-exposure occupations listing more distinct skills over time?
-- **Skill composition**: Are AI-exposed occupations disproportionately demanding technical, analytical, or AI-related skills — or "human" skills like communication and judgment?
-- **Credential proxies**: Are postings increasingly requiring higher education, specific certifications, or named technologies?
-
-If AI exposure is associated with rising skill demands at the entry level, that would strengthen the case that generative AI is not just changing *what* workers do — it is changing *who gets hired at all*.
+I also plan to run a formal event study regression to test for pre-trend violations and to map out the month-by-month dynamics of the treatment effect.
 
 ---
 
-*This research is ongoing and uses Lightcast job postings data, licensed to Opportunity@Work. Results and robustness checks will be added as the project develops.*
+*This research is ongoing and uses Lightcast job postings data, licensed to Opportunity@Work. Code and results will be updated as the project develops.*

@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - LA_Broad_final.html
 
 website:
   description: "Research on AI, labor markets, and economic opportunity"

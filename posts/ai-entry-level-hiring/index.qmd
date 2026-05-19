@@ -7,7 +7,7 @@ categories: [research, AI, labor markets]
 draft: false
 ---
 
-📄 [**Read the full paper**](../../paper_draft_final_v2.html)
+📄 [**Read the full paper**](../../paper.html)
 
 ## The Question
 

@@ -7,6 +7,97 @@
     "text": "About this blog"
   },
   {
+    "objectID": "paper.html",
+    "href": "paper.html",
+    "title": "Did ChatGPT Reshape Entry-Level Job Postings?",
+    "section": "",
+    "text": "In November 2022, OpenAI launched ChatGPT , and within weeks it became the fastest-growing consumer application in history. The launch marked a discrete and widely recognized break in the accessibility of generative AI to both employers and workers. Employers across industries began experimenting with AI tools for drafting, coding, data processing, and customer interaction , tasks that had, until recently, been the domain of entry-level workers building foundational skills.\nThis paper asks a narrow but consequential question: Did the ChatGPT launch reduce the share of job postings that are entry-level in occupations more exposed to AI? The motivation is straightforward. If generative AI can perform the tasks assigned to junior hires , drafting correspondence, writing code, summarizing documents, answering routine inquiries , then firms may respond at the margin not by laying off incumbents but by simply posting fewer entry-level roles. The hiring funnel narrows. Workers who were never hired are invisible in employment statistics, yet their exclusion is economically real.\nWhy job postings? Job postings capture employer intent before a hire is made. If a firm knows AI can perform certain tasks faster and at lower cost, the first observable response is a change in who they look for , before any layoff or headcount reduction shows up in employment data. This makes postings a leading indicator of AI’s effect on labor demand composition.\nThe remainder of the paper proceeds as follows. Section 2 describes the data sources. Section 3 presents the empirical strategy. Section 4 reports results. Section 5 discusses limitations. Section 6 concludes."
+  },
+  {
+    "objectID": "paper.html#job-postings-lightcast-emsi",
+    "href": "paper.html#job-postings-lightcast-emsi",
+    "title": "Did ChatGPT Reshape Entry-Level Job Postings?",
+    "section": "2.1 Job Postings: Lightcast (EMSI)",
+    "text": "2.1 Job Postings: Lightcast (EMSI)\nThe primary data source is the Lightcast (formerly EMSI Burning Glass) job postings database, covering approximately 92% of all U.S. online job postings from January 2020 through December 2024. Each posting includes the occupation code (5-digit SOC 2021), posting and expiration dates, minimum years of experience required, education requirement, and a standardized seniority label assigned by Lightcast (Intermediate, Junior, or Senior).\nTo validate the series, I compare Lightcast monthly posting counts to BLS JOLTS total nonfarm job openings over the same period. Figure 1 shows that Lightcast closely tracks JOLTS in level and trend, providing confidence the postings data captures genuine labor demand fluctuations rather than scraping artifacts.\n\n\n\nFigure 1: Lightcast job postings closely track BLS JOLTS job openings (2020–2024)\n\n\nThe analysis focuses on monthly occupation-level panels. After filtering to occupations with sufficient volume (&gt; 100 postings per month), the panel covers 733 five-digit SOC occupations and 63 months (January 2020 – March 2025), yielding approximately 45,000 occupation × month observations.\n\n2.1.1 Entry-Level Definition\nA posting is classified as entry-level if it satisfies two conditions:\n\nExperience requirement: min_years_experience ≤ 2, or (job_seniority_name = 'Junior' and min_years_experience IS NULL). The Junior + NULL carve-out is grounded in Lightcast’s classifier design. The seniority classifier is high-precision, low-recall: Junior labels are reliable positive identifiers of entry-level roles. Seniority values are fully populated in the 2020–2024 data (Intermediate: 83.6%, Junior: 9.2%, Senior: 7.2%; no missing values).\nEducation requirement: At most a bachelor’s degree (min_edulevels_name ∈ {No Education Listed, High school or GED, Associate degree, Bachelor’s Degree}).\n\nThis definition follows the Burning Glass (2021) standard of 0–2 years of required experience."
+  },
+  {
+    "objectID": "paper.html#ai-exposure-measures",
+    "href": "paper.html#ai-exposure-measures",
+    "title": "Did ChatGPT Reshape Entry-Level Job Postings?",
+    "section": "2.2 AI Exposure Measures",
+    "text": "2.2 AI Exposure Measures\nPrimary: gpt4_beta (Eloundou et al., 2023). This score reflects the fraction of an occupation’s O*NET tasks for which GPT-4 can provide meaningful assistance, as assessed by GPT-4 itself and human raters. The score ranges from 0 to 1 and is time-invariant by construction.\nRobustness: observed_exposure (Anthropic Economic Index). Derived from actual Claude usage patterns by occupation, reflecting revealed post-ChatGPT AI adoption. The two measures correlate at r = 0.638 (Spearman ρ = 0.699) across 630 occupations.\nAutomation vs. augmentation (Brynjolfsson, Chandar & Chen, 2025). The Anthropic Economic Index additionally classifies each occupation’s AI exposure as primarily automating (AI replaces tasks) or augmenting (AI complements workers). This distinction is used in the descriptive analysis to explain heterogeneity in the entry-level decline."
+  },
+  {
+    "objectID": "paper.html#specification",
+    "href": "paper.html#specification",
+    "title": "Did ChatGPT Reshape Entry-Level Job Postings?",
+    "section": "3.1 Specification",
+    "text": "3.1 Specification\nThe main estimating equation is a continuous-treatment difference-in-differences model with two-way fixed effects:\n\\[\\text{entry\\_sa}_{it} = \\alpha + \\beta \\cdot (\\text{Post}_t \\times \\text{GPT4Exp}_i) + \\gamma_i + \\delta_t + \\varepsilon_{it}\\]\nwhere:\n\n\\(\\text{entry\\_sa}_{it}\\) is the seasonally adjusted entry-level share for occupation \\(i\\) in month \\(t\\) (percentage points)\n\\(\\text{Post}_t = \\mathbf{1}[t \\geq \\text{October 2022}]\\) , ChatGPT launched November 30, 2022, the final day of the month, making November effectively a pre-treatment month in monthly data. Following Brynjolfsson, Chandar & Chen (2025), October 2022 is used as the event reference month and normalization point\n\\(\\text{GPT4Exp}_i\\) is the GPT-4 exposure score (0–1), time-invariant\n\\(\\gamma_i\\) are occupation fixed effects, absorbing time-invariant level differences\n\\(\\delta_t\\) are year-month fixed effects, absorbing macro shocks common across occupations\n\\(\\beta\\) is the DiD coefficient of interest: for a 1-unit increase in AI exposure, how much more did the entry-level share fall post-ChatGPT?\n\nThe model is estimated by WLS weighted by each occupation’s 2021 posting share, with standard errors clustered by occupation."
+  },
+  {
+    "objectID": "paper.html#identifying-assumption-and-rate-sensitivity-control",
+    "href": "paper.html#identifying-assumption-and-rate-sensitivity-control",
+    "title": "Did ChatGPT Reshape Entry-Level Job Postings?",
+    "section": "3.2 Identifying Assumption and Rate Sensitivity Control",
+    "text": "3.2 Identifying Assumption and Rate Sensitivity Control\nThe key identifying assumption is parallel trends: absent ChatGPT, entry-level shares would have trended similarly across high- and low-exposure occupations. The event study (Section 4.4) provides evidence for this assumption.\nThe primary identification threat is the 2022–2023 interest rate cycle: the Fed raised the federal funds rate from near zero to over 5% precisely as ChatGPT launched. Time fixed effects absorb the aggregate rate level, but do not account for the fact that some occupations are more rate-sensitive than others. To address this, I construct a pre-period rate sensitivity measure for each occupation , the OLS coefficient from regressing each occupation’s monthly posting % change on the change in the FFR over 2020–2022 , and add it as an interaction post × rate_sensitivity_i in a robustness specification."
+  },
+  {
+    "objectID": "paper.html#posting-declines-are-sharpest-at-entry-level-software-developers",
+    "href": "paper.html#posting-declines-are-sharpest-at-entry-level-software-developers",
+    "title": "Did ChatGPT Reshape Entry-Level Job Postings?",
+    "section": "4.1 Posting Declines Are Sharpest at Entry Level: Software Developers",
+    "text": "4.1 Posting Declines Are Sharpest at Entry Level: Software Developers\nFigure 2 shows monthly job postings for Software Developers (GPT-4 exposure = 0.94), a high-AI-exposure occupation, broken out by experience bucket and indexed to October 2022 = 1.\n\n\n\nFigure 2: Software Developer postings by YOE bucket, indexed to Oct 2022 = 1 (3-month centered moving average)\n\n\nThe pattern is striking. By end of the study period:\n\nEntry-level (0–3 YOE) fell to 56% of its October 2022 level\nMid-level (4–6 YOE) fell to 66%\nSenior (7+ YOE) fell to 81%\n\nEntry-level postings fell 2.4× harder than senior postings. This is consistent with Brynjolfsson et al. (2025), who document using ADP payroll data that early-career workers in AI-exposed occupations experienced 16% relative employment declines."
+  },
+  {
+    "objectID": "paper.html#same-pattern-in-finance-investment-analysis",
+    "href": "paper.html#same-pattern-in-finance-investment-analysis",
+    "title": "Did ChatGPT Reshape Entry-Level Job Postings?",
+    "section": "4.2 Same Pattern in Finance & Investment Analysis",
+    "text": "4.2 Same Pattern in Finance & Investment Analysis\nFigure 3 replicates the pattern for Financial and Investment Analysts (another high-AI-exposure occupation).\n\n\n\nFigure 3: Financial and Investment Analyst postings by YOE bucket, indexed to Oct 2022 = 1\n\n\nSenior postings reached 110% of their October 2022 level while entry-level and mid-level postings remain at 78%. The divergence between senior and entry-level within the same occupation points to a compositional shift in demand , not just an aggregate decline."
+  },
+  {
+    "objectID": "paper.html#overall-entry-level-postings-have-not-recovered",
+    "href": "paper.html#overall-entry-level-postings-have-not-recovered",
+    "title": "Did ChatGPT Reshape Entry-Level Job Postings?",
+    "section": "4.3 Overall Entry-Level Postings Have Not Recovered",
+    "text": "4.3 Overall Entry-Level Postings Have Not Recovered\nFigure 4 shows total monthly postings across all occupations, broken into four experience buckets.\n\n\n\nFigure 4: Total postings by YOE bucket across all occupations (indexed to Oct 2022 = 1)\n\n\nPostings requiring 0–3 YOE and 4–6 YOE declined after ChatGPT’s launch and have not recovered. Only the highest-experience group (11+ YOE) has grown substantially. The pattern holds across the full economy, not just in software or finance."
+  },
+  {
+    "objectID": "paper.html#decline-concentrated-in-automating-occupations",
+    "href": "paper.html#decline-concentrated-in-automating-occupations",
+    "title": "Did ChatGPT Reshape Entry-Level Job Postings?",
+    "section": "4.4 Decline Concentrated in Automating Occupations",
+    "text": "4.4 Decline Concentrated in Automating Occupations\nFigure 5 splits occupations by whether their AI exposure is primarily automating (AI replaces tasks) or augmenting (AI complements workers), following Brynjolfsson, Chandar & Chen (2025).\n\n\n\nFigure 5: Entry-level posting trends by AI exposure quintile , automating (left) vs. augmenting (right) occupations\n\n\nIn automating occupations (left panel), darker lines (higher AI exposure quintiles) fall furthest after October 2022 , consistent with AI substituting entry-level tasks and reducing the need to hire junior workers. In augmenting occupations (right panel), the pattern reverses: higher-exposure quintiles hold up better or grow, consistent with firms seeking more workers as AI multiplies their productivity. This heterogeneity is important: the aggregate decline in entry-level hiring is not uniform , it is driven by the automating end of the AI exposure spectrum."
+  },
+  {
+    "objectID": "paper.html#event-study-did-the-effect-begin-at-launch",
+    "href": "paper.html#event-study-did-the-effect-begin-at-launch",
+    "title": "Did ChatGPT Reshape Entry-Level Job Postings?",
+    "section": "4.5 Event Study: Did the Effect Begin at Launch?",
+    "text": "4.5 Event Study: Did the Effect Begin at Launch?\nThe event study tests whether the divergence between high- and low-exposure occupations began precisely at ChatGPT’s launch or whether the groups were already trending apart beforehand.\n\n\n\nFigure 6: Event study , monthly DiD coefficients under both exposure measures (left: gpt4_beta; right: Anthropic observed exposure). Main entry-level definition, N = 678 occupations, balanced panel, reference month: Oct 2022\n\n\nPre-treatment coefficients are noisy but centered near zero, providing support for the parallel trends assumption: high- and low-exposure occupations were on similar trajectories before October 2022. Post-treatment coefficients turn negative immediately after launch and remain negative, consistent with the gap opening at ChatGPT’s introduction and persisting through the post-period."
+  },
+  {
+    "objectID": "paper.html#did-regression-results",
+    "href": "paper.html#did-regression-results",
+    "title": "Did ChatGPT Reshape Entry-Level Job Postings?",
+    "section": "4.6 DiD Regression Results",
+    "text": "4.6 DiD Regression Results\nTable 1 reports the main DiD estimates and robustness checks.\nTable 1: DiD Estimates , Post × AI Exposure on Entry-Level Share\n\n\n\n\n\n\n\n\n\n\n\n\n\nSpecification\nTreatment\nCoef.\nStd. Err.\np-value\n95% CI\nN obs\nN occ\n\n\n\n\n(1) Main DiD\ngpt4_beta\n−1.729\n0.898\n0.054\n[−3.49, 0.03]\n45,436\n733\n\n\n(2) + rate sensitivity\ngpt4_beta\n−1.926\n0.824\n0.019\n[−3.54, −0.31]\n45,186\n729\n\n\n(3) Main DiD\nobserved_exposure\n−2.243\n0.921\n0.015\n[−4.05, −0.44]\n44,403\n716\n\n\n(4) + rate sensitivity\nobserved_exposure\n−2.426\n0.889\n0.006\n[−4.17, −0.68]\n~44,100\n~712\n\n\n\nAll models: Y = seasonally adjusted entry-level share (%). WLS with 2021 posting weights, occupation + year-month FEs, SEs clustered by occupation. Rate sensitivity is the pre-period OLS coefficient from regressing each occupation’s monthly posting % change on ΔFFR (2020–2022). *p&lt;0.10, **p&lt;0.05, ***p&lt;0.01.\nThe main specification (Spec 1) yields β = −1.729 pp (p = 0.054). Adding the interest rate robustness control (Spec 2) increases the magnitude to −1.926 pp (p = 0.019). This is because AI-exposed occupations are less rate-sensitive (r = 0.047 between gpt4_beta and rate_sensitivity), meaning the 2022–23 rate cycle was slightly attenuating the AI estimate rather than inflating it. Disentangling rate sensitivity makes the AI signal cleaner.\nUsing the Anthropic Economic Index (observed_exposure) as the treatment measure yields larger and more precisely estimated effects: −2.243 pp (p = 0.015) and −2.426 pp (p = 0.006) in Specs 3 and 4. All four specifications are negative; three of four are significant at the 5% level.\nBenchmark: Software Developers (gpt4_beta = 0.94) versus Truck Drivers (gpt4_beta = 0.04) represent a 0.90-unit gap in treatment. Spec 2 implies a −1.73 percentage point differential decline in entry-level share for Software Developers relative to Truck Drivers after ChatGPT’s launch. A demand shock control was also tested and left the coefficient virtually unchanged (−1.729 → −1.732), confirming the result is not driven by sector-level hiring contractions."
+  },
+  {
+    "objectID": "paper.html#what-the-results-suggest",
+    "href": "paper.html#what-the-results-suggest",
+    "title": "Did ChatGPT Reshape Entry-Level Job Postings?",
+    "section": "5.1 What the Results Suggest",
+    "text": "5.1 What the Results Suggest\nTaken together, the descriptive evidence and regression results tell a consistent story. Entry-level hiring has contracted most sharply in high-AI-exposure occupations , and the contraction is concentrated in the automating segment, where AI is most likely to substitute for junior-level tasks. This is not simply a tech sector story: the overall postings data show the entry-level shortfall across the full economy.\nFor workers who rely on entry-level roles as their primary path into a career, this compression represents a measurable narrowing of opportunity that does not show up in unemployment statistics. The concern is not displacement of experienced workers but exclusion of workers who never got the chance to become experienced."
+  },
+  {
+    "objectID": "paper.html#limitations",
+    "href": "paper.html#limitations",
+    "title": "Did ChatGPT Reshape Entry-Level Job Postings?",
+    "section": "5.2 Limitations",
+    "text": "5.2 Limitations\n1. Measurement of AI exposure. gpt4_beta measures what GPT-4 could do to an occupation’s tasks, not whether employers actually adopted AI. The score was constructed after ChatGPT’s launch using GPT-4 (released publicly March 2023), so it is not strictly pre-determined.\n2. Parallel trends. The pre-period (2020–2022) includes the COVID-19 shock and its uneven recovery, which may violate parallel trends independently of AI. The event study shows near-zero pre-trends, providing partial reassurance."
+  },
+  {
     "objectID": "posts/ai-entry-level-hiring/index.html",
     "href": "posts/ai-entry-level-hiring/index.html",
     "title": "Did ChatGPT Reshape Entry-Level Job Postings?",

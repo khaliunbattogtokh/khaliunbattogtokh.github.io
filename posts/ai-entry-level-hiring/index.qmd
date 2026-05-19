@@ -42,29 +42,19 @@ In software development (GPT-4 exposure = 0.94), postings by experience bucket t
 - **Mid-level (4–6 YOE)** fell to **66%**
 - **Senior (7+ YOE)** fell to **81%**
 
-![Software Developer postings by experience bucket, indexed to Oct 2022 = 1](swd_yoe_3bucket.png){width="90%"}
-
 Entry-level postings fell **2.4× harder** than senior postings. The same pattern holds in Financial and Investment Analysis: senior postings reached 110% of their October 2022 level while entry-level and mid-level remain at 78%.
-
-![Financial and Investment Analyst postings by experience bucket](yoe_finanalysts.png){width="80%"}
 
 ### Overall entry-level postings have not recovered
 
 Across all occupations, postings requiring 0–3 YOE and 4–6 YOE declined after ChatGPT's launch and have not recovered. Only the highest-experience group (11+ YOE) has grown substantially. This is not just a tech sector story — it holds economy-wide.
 
-![Total postings by experience bucket across all occupations](postings_by_yoe_fact2_4bucket.png){width="85%"}
-
 ### The decline is concentrated in automating occupations
 
 Splitting occupations by whether their AI exposure is primarily *automating* (AI replaces tasks) or *augmenting* (AI complements workers) reveals stark heterogeneity. In automating occupations, higher-exposure quintiles fall furthest after October 2022. In augmenting occupations, the pattern reverses — higher-exposure occupations hold up better or grow. The aggregate decline in entry-level hiring is not uniform; it is driven by the automating end of the AI exposure spectrum.
 
-![Entry-level posting trends by AI exposure quintile — automating (left) vs. augmenting (right)](canaries_entry_auto_aug.png){width="95%"}
-
 ### Event study
 
 The event study tests whether the divergence began precisely at ChatGPT's launch or whether groups were already trending apart beforehand. Pre-treatment coefficients are noisy but centered near zero — high- and low-exposure occupations were on parallel trajectories before October 2022. Post-treatment coefficients turn negative immediately after launch and remain negative.
-
-![Event study — monthly DiD coefficients (left: gpt4_beta; right: Anthropic observed exposure), N = 678 occupations](event_study_main.png){width="90%"}
 
 ---
 

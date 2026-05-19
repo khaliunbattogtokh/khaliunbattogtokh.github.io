@@ -11,14 +11,14 @@
     "href": "posts/ai-entry-level-hiring/index.html",
     "title": "Did ChatGPT Reshape Entry-Level Job Postings?",
     "section": "",
-    "text": "In November 2022, OpenAI launched ChatGPT, and within weeks it became the fastest-growing consumer application in history. Employers began experimenting with AI tools for drafting, coding, data processing, and customer interaction — tasks that had, until recently, been the domain of entry-level workers.\nThis raises a narrow but consequential question: did ChatGPT’s launch reduce the share of job postings that are entry-level in occupations more exposed to AI?\nWhy job postings? Job postings capture employer intent before a hire is made. If a firm knows AI can perform certain tasks faster and at lower cost, the first observable response is a change in who they look for — before any layoff or headcount reduction shows up in employment data. This makes postings a leading indicator of AI’s effect on labor demand composition."
+    "text": "📄 Read the full paper"
   },
   {
     "objectID": "posts/ai-entry-level-hiring/index.html#the-question",
     "href": "posts/ai-entry-level-hiring/index.html#the-question",
     "title": "Did ChatGPT Reshape Entry-Level Job Postings?",
-    "section": "",
-    "text": "In November 2022, OpenAI launched ChatGPT, and within weeks it became the fastest-growing consumer application in history. Employers began experimenting with AI tools for drafting, coding, data processing, and customer interaction — tasks that had, until recently, been the domain of entry-level workers.\nThis raises a narrow but consequential question: did ChatGPT’s launch reduce the share of job postings that are entry-level in occupations more exposed to AI?\nWhy job postings? Job postings capture employer intent before a hire is made. If a firm knows AI can perform certain tasks faster and at lower cost, the first observable response is a change in who they look for — before any layoff or headcount reduction shows up in employment data. This makes postings a leading indicator of AI’s effect on labor demand composition."
+    "section": "The Question",
+    "text": "The Question\nIn November 2022, OpenAI launched ChatGPT, and within weeks it became the fastest-growing consumer application in history. Employers began experimenting with AI tools for drafting, coding, data processing, and customer interaction — tasks that had, until recently, been the domain of entry-level workers.\nThis raises a narrow but consequential question: did ChatGPT’s launch reduce the share of job postings that are entry-level in occupations more exposed to AI?\nWhy job postings? Job postings capture employer intent before a hire is made. If a firm knows AI can perform certain tasks faster and at lower cost, the first observable response is a change in who they look for — before any layoff or headcount reduction shows up in employment data. This makes postings a leading indicator of AI’s effect on labor demand composition."
   },
   {
     "objectID": "posts/ai-entry-level-hiring/index.html#data",

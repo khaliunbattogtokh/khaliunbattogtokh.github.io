@@ -7,6 +7,8 @@ categories: [research, AI, labor markets]
 draft: false
 ---
 
+📄 [**Read the full paper**](../../paper_draft_final_v2.html)
+
 ## The Question
 
 In November 2022, OpenAI launched ChatGPT, and within weeks it became the fastest-growing consumer application in history. Employers began experimenting with AI tools for drafting, coding, data processing, and customer interaction — tasks that had, until recently, been the domain of entry-level workers.

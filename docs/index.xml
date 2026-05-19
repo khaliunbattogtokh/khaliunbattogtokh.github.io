@@ -24,9 +24,9 @@
 <p>📄 <a href="../../paper.html"><strong>Read the full paper</strong></a></p>
 <section id="the-question" class="level2">
 <h2 class="anchored" data-anchor-id="the-question">The Question</h2>
-<p>In November 2022, OpenAI launched ChatGPT, and within weeks it became the fastest-growing consumer application in history. Employers began experimenting with AI tools for drafting, coding, data processing, and customer interaction — tasks that had, until recently, been the domain of entry-level workers.</p>
+<p>In November 2022, OpenAI launched ChatGPT, and within weeks it became the fastest-growing consumer application in history. Employers began experimenting with AI tools for drafting, coding, data processing, and customer interaction , tasks that had, until recently, been the domain of entry-level workers.</p>
 <p>This raises a narrow but consequential question: <strong>did ChatGPT’s launch reduce the share of job postings that are entry-level in occupations more exposed to AI?</strong></p>
-<p><strong>Why job postings?</strong> Job postings capture employer intent before a hire is made. If a firm knows AI can perform certain tasks faster and at lower cost, the first observable response is a change in <em>who they look for</em> — before any layoff or headcount reduction shows up in employment data. This makes postings a leading indicator of AI’s effect on labor demand composition.</p>
+<p><strong>Why job postings?</strong> Job postings capture employer intent before a hire is made. If a firm knows AI can perform certain tasks faster and at lower cost, the first observable response is a change in <em>who they look for</em> , before any layoff or headcount reduction shows up in employment data. This makes postings a leading indicator of AI’s effect on labor demand composition.</p>
 <hr>
 </section>
 <section id="data" class="level2">
@@ -55,15 +55,15 @@
 </section>
 <section id="overall-entry-level-postings-have-not-recovered" class="level3">
 <h3 class="anchored" data-anchor-id="overall-entry-level-postings-have-not-recovered">Overall entry-level postings have not recovered</h3>
-<p>Across all occupations, postings requiring 0–3 YOE and 4–6 YOE declined after ChatGPT’s launch and have not recovered. Only the highest-experience group (11+ YOE) has grown substantially. This is not just a tech sector story — it holds economy-wide.</p>
+<p>Across all occupations, postings requiring 0–3 YOE and 4–6 YOE declined after ChatGPT’s launch and have not recovered. Only the highest-experience group (11+ YOE) has grown substantially. This is not just a tech sector story , it holds economy-wide.</p>
 </section>
 <section id="the-decline-is-concentrated-in-automating-occupations" class="level3">
 <h3 class="anchored" data-anchor-id="the-decline-is-concentrated-in-automating-occupations">The decline is concentrated in automating occupations</h3>
-<p>Splitting occupations by whether their AI exposure is primarily <em>automating</em> (AI replaces tasks) or <em>augmenting</em> (AI complements workers) reveals stark heterogeneity. In automating occupations, higher-exposure quintiles fall furthest after October 2022. In augmenting occupations, the pattern reverses — higher-exposure occupations hold up better or grow. The aggregate decline in entry-level hiring is not uniform; it is driven by the automating end of the AI exposure spectrum.</p>
+<p>Splitting occupations by whether their AI exposure is primarily <em>automating</em> (AI replaces tasks) or <em>augmenting</em> (AI complements workers) reveals stark heterogeneity. In automating occupations, higher-exposure quintiles fall furthest after October 2022. In augmenting occupations, the pattern reverses , higher-exposure occupations hold up better or grow. The aggregate decline in entry-level hiring is not uniform; it is driven by the automating end of the AI exposure spectrum.</p>
 </section>
 <section id="event-study" class="level3">
 <h3 class="anchored" data-anchor-id="event-study">Event study</h3>
-<p>The event study tests whether the divergence began precisely at ChatGPT’s launch or whether groups were already trending apart beforehand. Pre-treatment coefficients are noisy but centered near zero — high- and low-exposure occupations were on parallel trajectories before October 2022. Post-treatment coefficients turn negative immediately after launch and remain negative.</p>
+<p>The event study tests whether the divergence began precisely at ChatGPT’s launch or whether groups were already trending apart beforehand. Pre-treatment coefficients are noisy but centered near zero , high- and low-exposure occupations were on parallel trajectories before October 2022. Post-treatment coefficients turn negative immediately after launch and remain negative.</p>
 <hr>
 </section>
 </section>
@@ -127,7 +127,7 @@
 </tbody>
 </table>
 <p><em>WLS with 2021 posting weights, occupation + year-month FEs, SEs clustered by occupation. *p&lt;0.10, **p&lt;0.05, ***p&lt;0.01.</em></p>
-<p>All four specifications are negative; three of four are significant at the 5% level. Adding a rate sensitivity control — each occupation’s pre-period sensitivity to Fed funds rate changes — <em>increases</em> the magnitude, because AI-exposed occupations are less rate-sensitive. Disentangling the rate cycle makes the AI signal cleaner, not weaker.</p>
+<p>All four specifications are negative; three of four are significant at the 5% level. Adding a rate sensitivity control , each occupation’s pre-period sensitivity to Fed funds rate changes , <em>increases</em> the magnitude, because AI-exposed occupations are less rate-sensitive. Disentangling the rate cycle makes the AI signal cleaner, not weaker.</p>
 <p><strong>Benchmark:</strong> Software Developers (<code>gpt4_beta</code> = 0.94) versus Truck Drivers (<code>gpt4_beta</code> = 0.04) represent a 0.90-unit gap. Spec 2 implies a −1.73 percentage point differential decline in entry-level share after ChatGPT’s launch.</p>
 <hr>
 </section>
@@ -140,10 +140,8 @@
 <li><strong>High-AI occupations saw a ≈ −2.4 pp decline</strong> in entry-level share post-ChatGPT, significant at 5% after controlling for rate sensitivity</li>
 <li><strong>The decline is concentrated in automating occupations</strong>; augmenting occupations show a different pattern</li>
 </ol>
-<p>These findings do not settle the question of causality. The post-2022 period brought overlapping shocks — the rate cycle, tech sector correction, and post-pandemic normalization. But the consistency across exposure measures, specifications, and occupation types points in the same direction.</p>
+<p>These findings do not settle the question of causality. The post-2022 period brought overlapping shocks , the rate cycle, tech sector correction, and post-pandemic normalization. But the consistency across exposure measures, specifications, and occupation types points in the same direction.</p>
 <p>How this plays out over a longer horizon remains open. Prior technology transitions have ultimately created new categories of work even as they displaced old ones. Whether generative AI follows that pattern, or compresses the entry tier in ways that are more persistent, is a question the data will answer over time.</p>
-<hr>
-<p><em>This research uses Lightcast job postings data, licensed to Opportunity@Work.</em></p>
 
 
 </section>

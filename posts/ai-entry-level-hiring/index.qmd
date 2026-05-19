@@ -11,11 +11,11 @@ draft: false
 
 ## The Question
 
-In November 2022, OpenAI launched ChatGPT, and within weeks it became the fastest-growing consumer application in history. Employers began experimenting with AI tools for drafting, coding, data processing, and customer interaction — tasks that had, until recently, been the domain of entry-level workers.
+In November 2022, OpenAI launched ChatGPT, and within weeks it became the fastest-growing consumer application in history. Employers began experimenting with AI tools for drafting, coding, data processing, and customer interaction ,  tasks that had, until recently, been the domain of entry-level workers.
 
 This raises a narrow but consequential question: **did ChatGPT's launch reduce the share of job postings that are entry-level in occupations more exposed to AI?**
 
-**Why job postings?** Job postings capture employer intent before a hire is made. If a firm knows AI can perform certain tasks faster and at lower cost, the first observable response is a change in *who they look for* — before any layoff or headcount reduction shows up in employment data. This makes postings a leading indicator of AI's effect on labor demand composition.
+**Why job postings?** Job postings capture employer intent before a hire is made. If a firm knows AI can perform certain tasks faster and at lower cost, the first observable response is a change in *who they look for* ,  before any layoff or headcount reduction shows up in employment data. This makes postings a leading indicator of AI's effect on labor demand composition.
 
 ---
 
@@ -48,15 +48,15 @@ Entry-level postings fell **2.4× harder** than senior postings. The same patter
 
 ### Overall entry-level postings have not recovered
 
-Across all occupations, postings requiring 0–3 YOE and 4–6 YOE declined after ChatGPT's launch and have not recovered. Only the highest-experience group (11+ YOE) has grown substantially. This is not just a tech sector story — it holds economy-wide.
+Across all occupations, postings requiring 0–3 YOE and 4–6 YOE declined after ChatGPT's launch and have not recovered. Only the highest-experience group (11+ YOE) has grown substantially. This is not just a tech sector story ,  it holds economy-wide.
 
 ### The decline is concentrated in automating occupations
 
-Splitting occupations by whether their AI exposure is primarily *automating* (AI replaces tasks) or *augmenting* (AI complements workers) reveals stark heterogeneity. In automating occupations, higher-exposure quintiles fall furthest after October 2022. In augmenting occupations, the pattern reverses — higher-exposure occupations hold up better or grow. The aggregate decline in entry-level hiring is not uniform; it is driven by the automating end of the AI exposure spectrum.
+Splitting occupations by whether their AI exposure is primarily *automating* (AI replaces tasks) or *augmenting* (AI complements workers) reveals stark heterogeneity. In automating occupations, higher-exposure quintiles fall furthest after October 2022. In augmenting occupations, the pattern reverses ,  higher-exposure occupations hold up better or grow. The aggregate decline in entry-level hiring is not uniform; it is driven by the automating end of the AI exposure spectrum.
 
 ### Event study
 
-The event study tests whether the divergence began precisely at ChatGPT's launch or whether groups were already trending apart beforehand. Pre-treatment coefficients are noisy but centered near zero — high- and low-exposure occupations were on parallel trajectories before October 2022. Post-treatment coefficients turn negative immediately after launch and remain negative.
+The event study tests whether the divergence began precisely at ChatGPT's launch or whether groups were already trending apart beforehand. Pre-treatment coefficients are noisy but centered near zero ,  high- and low-exposure occupations were on parallel trajectories before October 2022. Post-treatment coefficients turn negative immediately after launch and remain negative.
 
 ---
 
@@ -77,7 +77,7 @@ where occupation fixed effects absorb time-invariant differences and time fixed 
 
 *WLS with 2021 posting weights, occupation + year-month FEs, SEs clustered by occupation. \*p<0.10, \*\*p<0.05, \*\*\*p<0.01.*
 
-All four specifications are negative; three of four are significant at the 5% level. Adding a rate sensitivity control — each occupation's pre-period sensitivity to Fed funds rate changes — *increases* the magnitude, because AI-exposed occupations are less rate-sensitive. Disentangling the rate cycle makes the AI signal cleaner, not weaker.
+All four specifications are negative; three of four are significant at the 5% level. Adding a rate sensitivity control ,  each occupation's pre-period sensitivity to Fed funds rate changes ,  *increases* the magnitude, because AI-exposed occupations are less rate-sensitive. Disentangling the rate cycle makes the AI signal cleaner, not weaker.
 
 **Benchmark:** Software Developers (`gpt4_beta` = 0.94) versus Truck Drivers (`gpt4_beta` = 0.04) represent a 0.90-unit gap. Spec 2 implies a −1.73 percentage point differential decline in entry-level share after ChatGPT's launch.
 
@@ -92,10 +92,7 @@ This analysis documents four findings:
 3. **High-AI occupations saw a ≈ −2.4 pp decline** in entry-level share post-ChatGPT, significant at 5% after controlling for rate sensitivity
 4. **The decline is concentrated in automating occupations**; augmenting occupations show a different pattern
 
-These findings do not settle the question of causality. The post-2022 period brought overlapping shocks — the rate cycle, tech sector correction, and post-pandemic normalization. But the consistency across exposure measures, specifications, and occupation types points in the same direction.
+These findings do not settle the question of causality. The post-2022 period brought overlapping shocks ,  the rate cycle, tech sector correction, and post-pandemic normalization. But the consistency across exposure measures, specifications, and occupation types points in the same direction.
 
 How this plays out over a longer horizon remains open. Prior technology transitions have ultimately created new categories of work even as they displaced old ones. Whether generative AI follows that pattern, or compresses the entry tier in ways that are more persistent, is a question the data will answer over time.
 
----
-
-*This research uses Lightcast job postings data, licensed to Opportunity@Work.*

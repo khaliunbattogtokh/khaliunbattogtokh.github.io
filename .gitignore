@@ -1,2 +1,6 @@
 /.quarto/
 **/*.quarto_ipynb
+
+# Python artifacts
+**/.ipynb_checkpoints/
+__pycache__/

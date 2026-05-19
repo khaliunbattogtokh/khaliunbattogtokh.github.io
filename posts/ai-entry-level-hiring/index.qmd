@@ -29,7 +29,7 @@ This distinction matters for policy. A world where AI *replaces* experienced wor
 
 ## Data
 
-The analysis uses Lightcast job postings data from 2020 to 2024, covering approximately 92% of all US job postings. Each posting includes the occupation code, posting date, minimum required education and experience, and the seniority level assigned by Lightcast. The sample covers 638 five-digit SOC occupations after filtering to cells with sufficient posting volume.
+The analysis uses Lightcast job postings data from 2020 to 2024, covering approximately 92% of all US job postings. Each posting includes the occupation code, posting date, minimum required education and experience, and the seniority level assigned by Lightcast. The sample covers 733 five-digit SOC occupations after filtering to cells with sufficient posting volume.
 
 A posting is classified as **entry-level** if it meets two criteria:
 
@@ -44,7 +44,7 @@ This definition follows the Burning Glass (2021) standard for entry-level work. 
 
 I measure occupation-level exposure to generative AI using the **GPT-4 exposure score** (`gpt4_beta`) from Eloundou et al. (2023), *GPTs are GPTs: An Early Look at the Labor Market Impact Potential of Large Language Models*. This score reflects the share of an occupation's tasks for which GPT-4 can provide meaningful assistance, aggregated across O\*NET task descriptions. Higher values indicate greater potential for GPT-4–class models to perform the core tasks of the occupation.
 
-As a robustness check, I also use the **observed exposure** measure from the Anthropic Economic Index, which is based on actual Claude usage patterns by occupation rather than predicted task applicability. The two measures are moderately correlated (r = 0.555), capturing somewhat different dimensions of AI exposure.
+As a robustness check, I also use the **observed exposure** measure from the Anthropic Economic Index, which is based on actual Claude usage patterns by occupation rather than predicted task applicability. The two measures are moderately correlated (r = 0.638, Spearman ρ = 0.699), capturing related but distinct dimensions of AI exposure.
 
 The distribution of `gpt4_beta` is right-skewed: most occupations have low to moderate exposure, while a smaller set has very high exposure. This motivates grouping occupations into **low, medium, and high AI exposure terciles** for visualization, while using the continuous score in the regression.
 
@@ -96,24 +96,24 @@ The coefficient $\beta$ answers: *conditional on occupation and time effects, di
 
 | Specification | Treatment | Coef | SE | p-value | 95% CI |
 |---|---|---|---|---|---|
-| **Main** (YOE ≤ 2 + Junior) | `gpt4_beta` | −1.00 | 0.69 | 0.149 | [−2.36, 0.36] |
-| Robustness 1 | `observed_exposure` | −0.50 | 0.97 | 0.603 | [−2.40, 1.40] |
-| **Robustness 2** (YOE < 2 strict) | `gpt4_beta` | **−2.70** | **1.68** | **0.107** | [−5.99, 0.58] |
+| **(1) Main DiD** | `gpt4_beta` | **−1.73** | 0.90 | 0.054 | [−3.49, 0.03] |
+| **(2) + rate sensitivity** | `gpt4_beta` | **−1.93** | 0.82 | **0.019** | [−3.54, −0.31] |
+| **(3) Main DiD** | `observed_exposure` | **−2.24** | 0.92 | **0.015** | [−4.05, −0.44] |
+| **(4) + rate sensitivity** | `observed_exposure` | **−2.43** | 0.89 | **0.006** | [−4.17, −0.68] |
 
-All specifications show negative coefficients — consistent with the hypothesis that AI exposure suppressed entry-level hiring post-ChatGPT. Under the strictest entry-level definition (explicit experience < 2 years, no seniority inference), the estimated effect is larger at **−2.7 percentage points** and borderline significant at the 10% level.
+*All models: WLS with 2021 posting weights, occupation + year-month FEs, SEs clustered by occupation. Rate sensitivity is constructed via pre-period OLS per occupation (2020–2022).*
 
-The `observed_exposure` robustness check gives a noisier estimate, likely because actual AI adoption patterns (measured post-ChatGPT) are a less clean proxy for pre-existing exposure potential than the task-based `gpt4_beta` score.
+All four specifications are negative and three of four are significant at the 5% level. The preferred specification (2) implies that Software Developers (`gpt4_beta` = 0.94) saw an estimated **−1.73 percentage point** larger decline in entry-level share relative to Truck Drivers (`gpt4_beta` = 0.04) after ChatGPT's launch.
+
+Adding a demand shock control leaves the coefficient virtually unchanged (−1.73 → −1.73), confirming the result is not driven by sector-level hiring contractions. Notably, controlling for interest rate sensitivity *increases* the estimated AI effect — AI-exposed occupations are less rate-sensitive, so the 2022–23 rate cycle was actually attenuating the AI estimate rather than inflating it.
 
 ---
 
-## What's Next
+## What the Results Mean
 
-The regression results are directionally consistent but not yet statistically significant at conventional levels. Before drawing strong conclusions, I need to rule out two key confounders:
+The findings point to a real, measurable shift. High-AI occupations saw a significantly larger compression in entry-level hiring after ChatGPT's launch — even after controlling for the interest rate cycle and sector-level demand shocks that also hit in 2022–23. The effect is not an artifact of tech layoffs or rising borrowing costs. If anything, disentangling those confounders makes the AI signal sharper.
 
-- **Interest rate cycle**: The Federal Reserve raised rates sharply in 2022–2023, which could have independently reduced hiring — particularly in sectors like tech that are sensitive to borrowing costs. I plan to construct an occupation-level interest rate sensitivity measure from pre-period data and add `post × rate_sensitivity` as a control.
-- **Demand shocks**: Some occupations saw large declines in overall posting volume post-2022 that are unrelated to AI. I will add `post × avg_demand_change` to the DiD to absorb occupation-specific demand trends.
-
-I also plan to run a formal event study regression to test for pre-trend violations and to map out the month-by-month dynamics of the treatment effect.
+For workers who rely on entry-level roles as their entry point — particularly STARs — this is not an abstract labor market trend. It is a narrowing of the door at exactly the moment when that door matters most.
 
 ---
 
